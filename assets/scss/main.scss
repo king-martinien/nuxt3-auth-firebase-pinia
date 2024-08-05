@@ -1,0 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/onest');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    font-family: Onest, sans-serif;
+    @apply selection:bg-blue-700 selection:text-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto;
+  }
+}
