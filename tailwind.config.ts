@@ -13,13 +13,13 @@ export default {
         "./formkit.theme.ts",
     ],
     theme: {
-        extend: {},
         colors: {
             currentColor: colors.current,
             transparent: colors.transparent,
             black: colors.black,
             white: colors.white,
             zinc: colors.zinc,
+            red: colors.red,
             blue: {
                 '50': '#BFD9FE',
                 '100': '#ADCEFE',
@@ -44,17 +44,10 @@ export default {
             {
                 custom: {
                     primary: '#1A78FB',
-                    secondary: '',
-                    accent: '',
-                    success: '',
-                    info: '',
-                    warning: '',
-                    neutral: '',
-                    'base-100': '',
-                    '--rounded-box': '0.5rem'
                 }
             }
-        ]
+        ],
+
     }
 }
 

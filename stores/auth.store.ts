@@ -1,5 +1,6 @@
 import type {LoginCredentials} from "~/model/types/LoginCredentials";
 import type {User} from "@firebase/auth";
+import type {FirebaseError} from "@firebase/util";
 
 export const useAuthStore = defineStore('auth.store', {
     state: () => ({
@@ -11,7 +12,11 @@ export const useAuthStore = defineStore('auth.store', {
         async login(loginCredentials: LoginCredentials) {
             const {email, password} = loginCredentials;
             await useFirebase().loginWithEmailAndPassword(email, password)
-                .catch(_reason => {
+                .then(() => {
+                    navigateTo('/dashboard');
+                })
+                .catch((_reason: FirebaseError) => {
+                    console.log(_reason);
                 });
         },
 

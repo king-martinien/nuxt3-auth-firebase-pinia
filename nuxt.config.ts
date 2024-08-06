@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
-    devtools: {enabled: true},
-    alias: {'@': '<srcDir/>/'},
+    // devtools: {enabled: true},
+    alias: {'@': '/<srcDir/>'},
     modules: ['@pinia/nuxt', '@formkit/nuxt'],
     css: ['~/assets/scss/main.scss'],
     formkit: {
