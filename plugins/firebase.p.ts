@@ -13,7 +13,7 @@ export default defineNuxtPlugin(_nuxt => {
         appId: config.public.APP_ID,
     };
 
-    if (getApps().length === 0) {
+    if (!getApps().length) {
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         return {

@@ -12,7 +12,11 @@
 }
 
 @layer components {
+  .btn {
+    @apply h-11 min-h-11;
+  }
+
   .container {
-    @apply mx-auto;
+    @apply mx-auto w-[92%];
   }
 }

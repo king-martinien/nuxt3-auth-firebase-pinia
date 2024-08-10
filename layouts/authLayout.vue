@@ -14,10 +14,10 @@
             <a href="https://www.github.com/king-martinien" target="_blank">
               <IconGithub/>
             </a>
-            <a href="" target="_blank">
+            <a href="https://twitter.com/KingMartinien" target="_blank">
               <IconXTwitter/>
             </a>
-            <a href="" target="_blank">
+            <a href="https://www.linkedin.com/in/martinien-fokoue" target="_blank">
               <IconLinkedIn/>
             </a>
           </div>

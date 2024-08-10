@@ -44,6 +44,12 @@ export default {
             {
                 custom: {
                     primary: '#1A78FB',
+                    secondary: "#f6d860",
+                    accent: "#37cdbe",
+                    neutral: "#3d4451",
+                    error: colors.red["600"],
+                    "base-100": "#ffffff",
+                    "--rounded-btn": "0.4rem",
                 }
             }
         ],
