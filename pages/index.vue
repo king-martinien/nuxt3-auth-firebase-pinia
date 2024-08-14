@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware:['redirect']
+  middleware: _to => navigateTo('/dashboard')
 })
 </script>
 

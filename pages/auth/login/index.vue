@@ -28,7 +28,7 @@ const handleSubmit = async (data: LoginCredentials) => {
       <FormKit type="email" id="email" name="email" placeholder="martinienfokoue@gmail.com"
                validation="required|email" prefix-icon="email"></FormKit>
       <FormKit :type="isPasswordVisible ? 'text':'password'" id="password" name="password"
-               placeholder="At least 8 characters"
+               placeholder="Enter your password"
                validation="required" prefix-icon="password" :suffix-icon="isPasswordVisible ?'eye':'eyeClosed'"
                @suffix-icon-click="handleTogglePasswordVisibility"></FormKit>
       <p class="text-end mb-4 mt-3">
