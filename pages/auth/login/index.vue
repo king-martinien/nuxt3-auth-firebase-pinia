@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {LoginCredentials} from "~/model/types/LoginCredentials";
+import SignInWithGoogle from "~/components/SignInWithGoogle.vue";
 
 definePageMeta({
   layout: 'auth-layout'
@@ -32,16 +33,20 @@ const handleSubmit = async (data: LoginCredentials) => {
                validation="required" prefix-icon="password" :suffix-icon="isPasswordVisible ?'eye':'eyeClosed'"
                @suffix-icon-click="handleTogglePasswordVisibility"></FormKit>
       <p class="text-end mb-4 mt-3">
-        <NuxtLink class="text-blue-500 text-sm font-semibold hover:underline hover:text-blue-600" to="forgot-password">
+        <NuxtLink class="text-blue-500 text-sm font-semibold hover:underline hover:text-blue-600"
+                  to="/auth/forgot-password">
           Forgot password ?
         </NuxtLink>
       </p>
-      <button class="btn btn-primary text-white w-full">
+      <button type="submit" class="btn btn-primary text-white w-full mb-5">
         <span v-if="!state.loading">Log in</span>
         <span v-else class="loading loading-bars"></span>
       </button>
+      <signInWithGoogle/>
       <p class="text-center mt-5">Don't you have an account ?
-        <NuxtLink to="signup" class="text-blue-500 font-semibold hover:underline hover:text-blue-600">Signup</NuxtLink>
+        <NuxtLink to="/auth/signup" class="text-blue-500 font-semibold hover:underline hover:text-blue-600">
+          Signup
+        </NuxtLink>
       </p>
     </FormKit>
   </div>

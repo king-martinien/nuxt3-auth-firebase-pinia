@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {SignupCredentials} from "~/model/types/SignupCredentials";
+import SignInWithGoogle from "~/components/SignInWithGoogle.vue";
 
 definePageMeta({
   layout: 'auth-layout'
@@ -34,12 +35,15 @@ const handleSubmit = async (data: SignupCredentials) => {
                :suffix-icon="isPasswordVisible ?'eye':'eyeClosed'"
                @suffix-icon-click="handleTogglePasswordVisibility"></FormKit>
 
-      <button class="btn btn-primary mt-3 text-white w-full">
+      <button class="btn btn-primary mt-3 mb-5 text-white w-full">
         <span v-if="!state.loading">Get Started</span>
         <span v-else class="loading loading-bars"></span>
       </button>
+      <signInWithGoogle/>
       <p class="text-center mt-5">Already have an account ?
-        <NuxtLink to="login" class="text-blue-500 font-semibold hover:underline hover:text-blue-600">Log in</NuxtLink>
+        <NuxtLink to="/auth/login" class="text-blue-500 font-semibold hover:underline hover:text-blue-600">
+          Log in
+        </NuxtLink>
       </p>
     </FormKit>
   </div>

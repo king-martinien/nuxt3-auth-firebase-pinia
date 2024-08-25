@@ -1,6 +1,8 @@
 import {
     createUserWithEmailAndPassword,
+    GoogleAuthProvider,
     signInWithEmailAndPassword,
+    signInWithPopup,
     signOut,
     updateProfile,
     type User,
@@ -10,6 +12,7 @@ import {
 export default (() => {
 
     const $auth = useNuxtApp().$auth;
+    const $googleProvider = useNuxtApp().$googleProvider;
 
     const signupUser = async (username: string, email: string, password: string) => {
         await createUserWithEmailAndPassword($auth, email, password)
@@ -26,6 +29,14 @@ export default (() => {
                 localStorage.setItem(USER, JSON.stringify(userCredential.user));
                 await setCookie();
             });
+    };
+
+    const signInWithProvider = async () => {
+        await signInWithPopup($auth, $googleProvider).then(async (userCredential: UserCredential) => {
+            const credential = GoogleAuthProvider.credentialFromResult(userCredential);
+            localStorage.setItem(USER, JSON.stringify(userCredential.user));
+            await setCookie();
+        });
     };
 
     const setCookie = async () => {
@@ -58,5 +69,5 @@ export default (() => {
 
     const USER = "USER";
     const FIREBASE_TOKEN = "FIREBASE_TOKEN";
-    return {signupUser, loginWithEmailAndPassword, getFirebaseToken, getCurrentUser, logout};
+    return {signupUser, loginWithEmailAndPassword, signInWithProvider, getFirebaseToken, getCurrentUser, logout};
 });

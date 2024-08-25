@@ -33,6 +33,16 @@ export const useAuthStore = defineStore('auth.store', {
                 });
         },
 
+        async loginWithGoogle() {
+            await useFirebase().signInWithProvider()
+                .then(async () => {
+                    await this.getCurrentUser();
+                    navigateTo('/dashboard');
+                }).catch(err => {
+                    console.log(err);
+                });
+        },
+
         async getFirebaseToken() {
             this.firebaseToken = await useFirebase().getFirebaseToken();
         },
